@@ -21,19 +21,30 @@ class Employee {
     
   }
 
-  getEmployeeDetails() {
+   getEmployeeDetails() {
     return `Name: ${this.name}, Department: ${this.department}, Salary: ${this.salary}`;
   }
 }
 
-const employee = new Employee ('Stas','sks', 600)
+const employee = new Employee ('Stas','finance', 600)
 
-console.log(employee)
+console.log(employee.getEmployeeDetails())
 
 class Manager extends Employee {
   // Реалізуйте конструктор та збільшіть salary на 10000
+  constructor( name: string, department: string, salary: number) {
+    super(name, department, salary=salary+10000)
+  }
+  getEmployeeDetails() {
+    return `Name: ${this.name}, Salary: ${this.salary}`;
+  }
+  
 
 }
+
+const manager = new Manager('STAS', 'FINANCE', 600)
+
+console.log(manager.getEmployeeDetails())
 
 
 export {};
