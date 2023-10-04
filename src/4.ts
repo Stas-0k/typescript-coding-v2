@@ -1,11 +1,45 @@
-// const key = new Key();
+class Key {
+  constructor(private signature: number) {}
 
-// const house = new MyHouse(key);
-// const person = new Person(key);
+  getSignature() {
+    return this.signature;
+  }
+}
 
-// house.openDoor(person.getKey());
+class Person {
+  constructor(private key: {}) {
+   
+  }
 
-// house.comeIn(person);
+  getKey() {
+    return this.key;
+  }
+}
 
+class House {
+  constructor(public door: boolean, public key: {}) {}
 
-// export {};
+  comeIn() {}
+
+  openDoor() {}
+}
+
+class MyHouse extends House {
+  constructor(public door: boolean, public key: {}) {
+    super(door, key);
+  }
+}
+
+const key = new Key(Math.random());
+
+console.log(key)
+
+const house = new MyHouse(key);
+const person = new Person(key);
+console.log(person)
+
+house.openDoor(person.getKey());
+
+house.comeIn(person);
+
+export {};
