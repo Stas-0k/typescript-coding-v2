@@ -17,15 +17,16 @@ class Person {
 }
 
 abstract class House {
-    public tenants: [] = []
+    public tenants: {}[]=[]
     public door: boolean;
   constructor( public key: {}) {}
 
-  public comeIn(person) {
+  public comeIn(person: {}) {
     if (this.door) {
-        return this.tenants.push(person)
+         this.tenants.push(person)
+         return this.tenants
     } else {
-        return 
+        return
     }
 
   }
@@ -49,11 +50,14 @@ class MyHouse extends House {
 }
 
 const key = new Key(Math.random());
+console.log(key)
 
 
 const house = new MyHouse(key);
-const person = new Person(key);
+console.log(house)
 
+const person = new Person(key);
+console.log(person)
 
 console.log(house.openDoor(person.getKey()));
 
